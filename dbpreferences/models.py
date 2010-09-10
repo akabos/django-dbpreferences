@@ -184,6 +184,11 @@ class UserSettings(models.Model):
         ordering = ("user",)
         verbose_name = verbose_name_plural = "User settings"
 
+    def get_settings(self):
+        if self.settings:
+            return self.settings
+        return dict()
+
 
 if __name__ == "__main__":
     import doctest

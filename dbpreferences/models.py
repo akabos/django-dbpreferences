@@ -29,9 +29,9 @@ from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User, Group
 from django.core.exceptions import ValidationError
 
-from dbpreferences.tools import forms_utils, easy_import, data_eval
+from dbpreferences.tools import forms_utils, data_eval
 from dbpreferences.fields import DictField
-from dbpreferences.conf import PREF_FORM_FILENAME
+from dbpreferences.loading import get_app
 
 
 def serialize(data):
@@ -122,9 +122,7 @@ class Preference(models.Model):
 
     def get_form_class(self):
         """ returns the form class for this preferences item """
-        from_name = "%s.%s" % (self.app_label, PREF_FORM_FILENAME)
-        form = easy_import.import3(from_name, self.form_name)
-        return form
+        return getattr(get_app(self.app_label), self.form_name)
 
     def __unicode__(self):
         return u"Preferences for %s.%s.%s" % (self.site, self.app_label, self.form_name)

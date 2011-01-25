@@ -5,7 +5,7 @@ from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 
 from dbpreferences.models import Preference
-from dbpreferences.tools import forms_utils, easy_import
+
 
 class DBPreferencesBaseForm(forms.Form):
     def __init__(self, *args, **kwargs):

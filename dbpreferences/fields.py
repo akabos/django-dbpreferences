@@ -19,16 +19,13 @@ if __name__ == "__main__":
     import os
     os.environ["DJANGO_SETTINGS_MODULE"] = "django.conf.global_settings"
 
-import sys
 import pprint
 
 from django import forms
 from django.db import models
-from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User, Group
 
-from dbpreferences.tools import forms_utils, easy_import, data_eval
+from dbpreferences.tools import data_eval
 from dbpreferences.tools.data_eval import DataEvalError
 
 

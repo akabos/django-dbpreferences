@@ -1,0 +1,3 @@
+django_dbpreferences.egg-info/*
+dist/*
+*.pyc

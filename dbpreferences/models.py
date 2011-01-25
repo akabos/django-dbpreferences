@@ -31,9 +31,7 @@ from django.core.exceptions import ValidationError
 
 from dbpreferences.tools import forms_utils, easy_import, data_eval
 from dbpreferences.fields import DictField
-
-# The filename in witch the form should be stored:
-PREF_FORM_FILENAME = "preference_forms"
+from dbpreferences.conf import PREF_FORM_FILENAME
 
 
 def serialize(data):
